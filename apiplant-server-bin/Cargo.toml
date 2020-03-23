@@ -1,0 +1,10 @@
+[package]
+name = "apiplant-server-bin"
+description = "Run an APIPlant server"
+version = "0.1.0"
+authors = ["Federico Rampazzo <frampone@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+apiplant-server-lib = { path = "../apiplant-server-lib" }
+seahorse = "0.7.0"

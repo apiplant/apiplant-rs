@@ -1,0 +1,16 @@
+[package]
+name = "apiplant-server-lib"
+version = "0.1.0"
+authors = ["Federico Rampazzo <frampone@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+colored = "1.9"
+toml = "0.5"
+serde = "1.0"
+actix-web = "2.0"
+actix-rt = "1.0"
+libloading = "0.5"
+
+[build-dependencies]
+rustc_version = "0.2"

@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "apiplant-server-bin",
+    "apiplant-server-lib",
+    "apiplant-driver-model-memory",
+]
