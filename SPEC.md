@@ -132,7 +132,7 @@ Update a model's hook
 ##### GET /models/:modelId/instances
 Returns a list of model instances
 
-##### GET/models/:modelId/instances/:id
+##### GET /models/:modelId/instances/:id
 Returns a model instance's properties
 
 ##### POST /models
