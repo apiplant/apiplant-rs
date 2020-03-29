@@ -37,7 +37,7 @@ pub trait ErrorStorage {
 }
 
 #[derive(Default)]
-pub struct App {
+pub struct PluginRegistry {
     pub model_storage: Option<Box<dyn ModelStorage>>,
     pub event_storage: Option<Box<dyn EventStorage>>,
     pub secure_storage: Option<Box<dyn SecureStorage>>,
@@ -52,7 +52,7 @@ pub trait PluginRegistrar {
     fn register_error_storage(&mut self, _: Box<dyn ErrorStorage>) { () }
 }
 
-impl PluginRegistrar for App {
+impl PluginRegistrar for PluginRegistry {
     fn register_model_storage(&mut self, model_storage: Box<dyn ModelStorage>) { 
         self.model_storage = Some(model_storage)
     }
@@ -67,8 +67,8 @@ impl PluginRegistrar for App {
     }
 }
 
-impl App {
-    pub fn new() -> App { App::default() }
+impl PluginRegistry {
+    pub fn new() -> PluginRegistry { PluginRegistry::default() }
     pub unsafe fn load<P: AsRef<OsStr>>(
         &mut self,
         library_path: P,

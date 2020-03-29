@@ -9,10 +9,8 @@ Native Hooks (.so, .dll) are loaded from the `hooks` directory in the working di
 Configuration for initialising the server
 ```
 [server]
-mount-url = '' # default, any host, port 8080 or first free, instance mounted on /
-mount-url = ':80/api' # any host, port 80, instance mounted on /
-mount-url = 'mydomain.com/api' # mydomain.com only, port 8080, instance mounted on /api
-mount-url = 'localhost:1337' # localhost only, port 1337, instance mounted on /
+mount-address = '0.0.0.0:1337' # default, bind to any socket address on port 1337
+mount-path    = '/'            # default, mount the API server on root
 ```
 
 ### driver-secure-storage
@@ -109,7 +107,7 @@ Returns a model's properties
  - Updates a model definition, incrementing its version
  - Perform necessary side effects (like updating a schema in a database, migrating columns)
 
-##### DEL /models/:modelId
+##### DELETE /models/:modelId
  - Add an event in the Event Log with the payload
  - Publish the event for every instance listening
  - Listen on that event
@@ -125,6 +123,9 @@ Returns a model's hooks
 Returns a model's hook
 
 ##### PUT /models/:modelId/hooks/:hook
+Update a model's hook
+
+##### DELETE /models/:modelId/hooks/:hook
 Update a model's hook
 
 #### Model Instances
@@ -147,11 +148,15 @@ Returns a model instance's properties
  - Updates a model instance
  - Run postUpdate hook
 
-##### DEL /models/:modelId/instances/:id
+##### DELETE /models/:modelId/instances/:id
  - Add an event in the Event Log with the payload
  - Run preDelete hook
  - Delete a model instance
  - Run postDelete hook
+
+### TODO
+expose rustls ssl server 
+host a static files directory if available
 
 ### Plugins Idea:
 
