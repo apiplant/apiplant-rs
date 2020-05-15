@@ -1,5 +1,5 @@
 [package]
-name = "apiplant-driver-model-memory"
+name = "apiplant-driver-sqlx"
 version = "0.1.0"
 authors = ["Federico Rampazzo <frampone@gmail.com>"]
 edition = "2018"
@@ -9,3 +9,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 apiplant-server-lib = { path = "../apiplant-server-lib" }
+sqlx = "0.3.2"

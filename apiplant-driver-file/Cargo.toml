@@ -1,0 +1,11 @@
+[package]
+name = "apiplant-driver-file"
+version = "0.1.0"
+authors = ["Federico Rampazzo <frampone@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+apiplant-server-lib = { path = "../apiplant-server-lib" }

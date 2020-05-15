@@ -3,5 +3,7 @@
 members = [
     "apiplant-server-bin",
     "apiplant-server-lib",
-    "apiplant-driver-model-memory",
+    "apiplant-driver-memory",
+    "apiplant-driver-file",
+    "apiplant-driver-sqlx",
 ]

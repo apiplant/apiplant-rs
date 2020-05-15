@@ -13,23 +13,17 @@ mount-address = '0.0.0.0:1337' # default, bind to any socket address on port 133
 mount-path    = '/'            # default, mount the API server on root
 ```
 
-### driver-secure-storage
-Configuration for storing secure information, as specified by plugin.
-
-### driver-event-storage
-Configuration for storing events, as specified by plugin.
-
-### driver-model-storage
-Configuration for storing models, as specified by plugin.
-
-### driver-error-storage
-Configuration for logging errors, as specified by plugin.
-
+### drivers
+```
+[drivers]
+model = "memory"
+event = "memory"
+error = "stdout"
+```
 
 ## Logic
 
 ### Init application
-
  - Parse config
  - Load plugins and get informations on them
  - Create shared context for sharing connections between drivers
@@ -155,9 +149,19 @@ Returns a model instance's properties
  - Run postDelete hook
 
 ### TODO
-expose rustls ssl server 
-host a static files directory if available
+- expose rustls ssl server 
+- host a static files directory if available
+- Cache per model? Enable with max size optional, store things in redis
+- Persist entity or just store event? 
+- Virtual model, not persisted, RPC like
+- Use async-std when reading config / loading plugins with .join() in parallel
+- Use https://crates.io/crates/sqlx for apiplant-driver-model-sql
+- Data types support: Null, Bool, String, Int, Float, BigInt, Date, Time, IP, JSON, Location
 
+- would be good to share pools between plugins with same config
+- driver event http
+- driver event kafka
+- driver secure storage + token stored in the model?
 ### Plugins Idea:
 
 Driver Secure Storage = needs private key

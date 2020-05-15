@@ -5,7 +5,7 @@ mod server;
 use colored::*;
 
 pub use plugins::{PluginDeclaration, APIPLANT_VERSION, RUSTC_VERSION};
-pub use app_interface::{ModelStorage, EventStorage, SecureStorage, ErrorStorage, PluginRegistrar};
+pub use app_interface::{ModelStorage, EventStorage, ErrorStorage, PluginRegistrar};
 
 pub fn init_apiplant(config_path: &str, plugins_path: &str) -> () {
     let config = config::load_config(&config_path);

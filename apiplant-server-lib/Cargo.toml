@@ -11,6 +11,9 @@ serde = "1.0"
 actix-web = "2.0"
 actix-rt = "1.0"
 libloading = "0.5"
+chrono = "0.4"
+bigdecimal = "0.1.0"
+
 
 [build-dependencies]
 rustc_version = "0.2"

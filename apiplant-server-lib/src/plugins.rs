@@ -49,8 +49,8 @@ fn load_plugins_files(base_path: &str, plugin_registry: &mut PluginRegistry) -> 
         unsafe {
             let loaded = plugin_registry.load(&path);
             if let Some(path_str) = path.to_str() {
-                if  loaded.is_ok() {
-                    println!("{} imported plugin {}", "success:".bright_green().bold(), path_str);
+                if !loaded.is_ok() {
+                    println!("{} failed to import {}", "warning:".bright_yellow().bold(), path_str);
                 }
             }
             loaded.unwrap_or(());
